@@ -17,4 +17,11 @@
           <li class="nav-item"><a href="/" class="nav-link active" aria-current="page"><?php _e('Accueil', 'cookinfamily'); ?></a></li>
           <li class="nav-item"><a href="https://github.com/OpenClassrooms-Student-Center/8069121-Perfectionnez-vous-sur-WordPress" target="_blank" class="nav-link"><?php _e('Cours OpenClassRooms', 'cookinfamily'); ?></a></li>
         </ul>
+        <div class="col-12">
+          <?php 
+            $introduction = get_option('cookinfamily_settings_field_introduction');
+            
+            echo $introduction;
+          ?>
+        </div>
       </header>

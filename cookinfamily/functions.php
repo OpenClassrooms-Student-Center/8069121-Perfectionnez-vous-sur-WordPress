@@ -57,13 +57,49 @@
       echo '<input name="cookinfamily_settings_field_phone_number" type="text" value="'.$value.'" />';
      }
      
-     function cookinfamily_settings_field_email_output() {
+    function cookinfamily_settings_field_email_output() {
       $value = get_option('cookinfamily_settings_field_email');
 
       echo '<input name="cookinfamily_settings_field_email" type="text" value="'.$value.'" />';
-     }
+    }
+
+    function cookinfamily_register_custom_post_types() {
+			$labels_recipe = array(
+				'menu_name'             => __('Recettes', 'cookinfamily'),
+				'name_admin_bar'        => __('Recette', 'cookinfamily'),
+	      'add_new_item'          => __('Ajouter une nouvelle recette', 'cookinfamily'),
+	      'new_item'              => __('Nouvelle recette', 'cookinfamily'),
+	      'edit_item'             => __('Modifier la recette', 'cookinfamily'),
+			);
+
+			$args_recipe = array(
+				'label'                 => __('Recettes', 'cookinfamily'),
+				'description'           => __('Recettes', 'cookinfamily'),
+				'labels'                => $labels_recipe,
+				'supports'              => array('title', 'thumbnail', 'excerpt', 'editor'),
+				'hierarchical'          => false,
+				'public'                => true,
+				'show_ui'               => true,
+				'show_in_menu'          => true,
+				'menu_position'         => 40,
+				'show_in_admin_bar'     => true,
+				'show_in_nav_menus'     => true,
+				'can_export'            => true,
+				'has_archive'           => true,
+				'exclude_from_search'   => false,
+				'publicly_queryable'    => true,
+				'capability_type'       => 'post',
+				'menu_icon'   					=> 'dashicons-drumstick',
+			);
+
+			register_post_type('cookinfamily_recipe', $args_recipe);
+		}
+
+
+
 
     /***** Actions *****/
     add_action('admin_menu', 'cookinfamily_add_admin_pages', 10);
     add_action('admin_init', 'cookinfamily_settings_register');
+    add_action('init', 'cookinfamily_register_custom_post_types', 11);
 ?>

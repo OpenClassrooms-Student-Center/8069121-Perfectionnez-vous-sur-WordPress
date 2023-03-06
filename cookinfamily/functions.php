@@ -64,18 +64,18 @@
     }
 
     function cookinfamily_register_custom_post_types() {
-			$labels_recipe = array(
-				'menu_name'             => __('Recettes', 'cookinfamily'),
-				'name_admin_bar'        => __('Recette', 'cookinfamily'),
-	      'add_new_item'          => __('Ajouter une nouvelle recette', 'cookinfamily'),
-	      'new_item'              => __('Nouvelle recette', 'cookinfamily'),
-	      'edit_item'             => __('Modifier la recette', 'cookinfamily'),
+			$labels_ingredient = array(
+				'menu_name'             => __('Ingrédients', 'cookinfamily'),
+				'name_admin_bar'        => __('Ingrédient', 'cookinfamily'),
+	      'add_new_item'          => __('Ajouter un nouvel ingrédient', 'cookinfamily'),
+	      'new_item'              => __('Nouvel ingrédient', 'cookinfamily'),
+	      'edit_item'             => __('Modifier l\'ingrédient', 'cookinfamily'),
 			);
 
-			$args_recipe = array(
-				'label'                 => __('Recettes', 'cookinfamily'),
-				'description'           => __('Recettes', 'cookinfamily'),
-				'labels'                => $labels_recipe,
+			$args_ingredient = array(
+				'label'                 => __('Ingrédients', 'cookinfamily'),
+				'description'           => __('Ingrédients', 'cookinfamily'),
+				'labels'                => $labels_ingredient,
 				'supports'              => array('title', 'thumbnail', 'excerpt', 'editor'),
 				'hierarchical'          => false,
 				'public'                => true,
@@ -92,11 +92,8 @@
 				'menu_icon'   					=> 'dashicons-drumstick',
 			);
 
-			register_post_type('cookinfamily_recipe', $args_recipe);
+			register_post_type('cif_ingredient', $args_ingredient);
 		}
-
-
-
 
     /***** Actions *****/
     add_action('admin_menu', 'cookinfamily_add_admin_pages', 10);

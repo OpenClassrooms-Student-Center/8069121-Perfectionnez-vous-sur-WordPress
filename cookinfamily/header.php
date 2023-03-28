@@ -10,18 +10,17 @@
     <div class="container">
       <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-          <img class="bi me-2" width="40" height="32" src="assets/images/" alt="<?php _e('CookInFamily', 'cookinfamily'); ?>" />
-          <span class="fs-4"><?php _e('CookInFamily', 'cookinfamily'); ?></span>
+          <img class="bi me-2 mb-2" width="137" height="113" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="<?php _e('CookInFamily', 'cookinfamily'); ?>" />
+          <span class="fs-5">
+            <?php 
+              $introduction = get_option('cookinfamily_settings_field_introduction');
+              
+              echo $introduction;
+            ?>
+          </span>
         </a>
         <ul class="nav nav-pills">
-          <li class="nav-item"><a href="/" class="nav-link active" aria-current="page"><?php _e('Accueil', 'cookinfamily'); ?></a></li>
-          <li class="nav-item"><a href="https://github.com/OpenClassrooms-Student-Center/8069121-Perfectionnez-vous-sur-WordPress" target="_blank" class="nav-link"><?php _e('Cours OpenClassRooms', 'cookinfamily'); ?></a></li>
+          <li class="nav-item"><a href="/" class="nav-link link-secondary"><?php _e('Accueil', 'cookinfamily'); ?></a></li>
+          <li class="nav-item"><a href="https://github.com/OpenClassrooms-Student-Center/8069121-Perfectionnez-vous-sur-WordPress" target="_blank" class="nav-link link-secondary"><?php _e('Cours OpenClassrooms', 'cookinfamily'); ?></a></li>
         </ul>
-        <div class="col-12">
-          <?php 
-            $introduction = get_option('cookinfamily_settings_field_introduction');
-            
-            echo $introduction;
-          ?>
-        </div>
       </header>

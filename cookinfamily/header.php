@@ -21,6 +21,6 @@
         </a>
         <ul class="nav nav-pills">
           <li class="nav-item"><a href="/" class="nav-link link-secondary"><?php _e('Accueil', 'cookinfamily'); ?></a></li>
-          <li class="nav-item"><a href="https://github.com/OpenClassrooms-Student-Center/8069121-Perfectionnez-vous-sur-WordPress" target="_blank" class="nav-link link-secondary"><?php _e('Cours OpenClassRooms', 'cookinfamily'); ?></a></li>
+          <li class="nav-item"><a href="https://github.com/OpenClassrooms-Student-Center/8069121-Perfectionnez-vous-sur-WordPress" target="_blank" class="nav-link link-secondary"><?php _e('Cours OpenClassrooms', 'cookinfamily'); ?></a></li>
         </ul>
       </header>

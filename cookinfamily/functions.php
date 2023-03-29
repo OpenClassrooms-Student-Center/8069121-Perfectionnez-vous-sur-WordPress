@@ -1,19 +1,18 @@
 <?php
     function cookinfamily_add_admin_pages() {
-        add_menu_page(__('CookInFamily', 'cookinfamily'), __('CookInFamily', 'cookinfamily'), 'manage_options', 'cookinfamily-settings', 'cookinfamily_theme_settings', 'dashicons-admin-settings', 60); 
+        add_menu_page(__('Paramètres du thème CookInFamily', 'cookinfamily'), __('CookInFamily', 'cookinfamily'), 'manage_options', 'cookinfamily-settings', 'cookinfamily_theme_settings', 'dashicons-admin-settings', 60); 
     }
 
     function cookinfamily_theme_settings() {
-        echo '<h1>'.__('Paramètres du thème CookInFamily', 'cookinfamily').'</h1>';
+        echo '<h1>'.esc_html( get_admin_page_title() ).'</h1>';
         echo '<form action="options.php" method="post" name="cookinfamily_settings">';
         echo '<div>';
   
         settings_fields('cookinfamily_settings_fields');
         do_settings_sections('cookinfamily_settings_section');
-  
+        submit_button();
+
         echo '</div>';
-        echo '<br />';
-        echo '<input name="submit" class="button button-primary" type="submit" value="'.__('Enregistrer', 'cookinfamily').'" />';
         echo '</form>';
     }
 

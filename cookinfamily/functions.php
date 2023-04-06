@@ -94,8 +94,63 @@
     register_post_type('cif_ingredient', $args_ingredient);
   }
 
+  function cookinfamily_register_taxonomies() {
+    $labels = array(
+      'name'              => __( 'Types de plat' ),
+      'singular_name'     => __( 'Type de plat' ),
+      'search_items'      => __( 'Rechercher un type de plat' ),
+      'all_items'         => __( 'Tous les types de plat' ),
+      'parent_item'       => __( 'Parent Type de plat' ),
+      'parent_item_colon' => __( 'Parent Type de plat:' ),
+      'edit_item'         => __( 'Modifier un type de plat' ), 
+      'update_item'       => __( 'Mettre à jour un type de plat' ),
+      'add_new_item'      => __( 'Ajouter un nouveau type de plat' ),
+      'new_item_name'     => __( 'Nouveau type de plat' ),
+      'menu_name'         => __( 'Type de plat' )
+    );
+
+    $args = array(
+      'hierarchical'      => true, 
+      'labels'            => $labels,
+      'show_ui'           => true,
+      'show_admin_column' => true,
+      'query_var'         => true,
+      'show_in_rest'      => true,
+      'rewrite'           => array( 'slug' => 'type-de-plat' )
+    );
+
+    register_taxonomy('type_de_plat', array('recettes'), $args);
+    
+    $labels = array(
+      'name'              => __( 'Régimes alimentaire' ),
+      'singular_name'     => __( 'Régime alimentaire' ),
+      'search_items'      => __( 'Rechercher un régime alimentaire' ),
+      'all_items'         => __( 'Tous les régimes alimentaire' ),
+      'parent_item'       => __( 'Parent régime alimentaire' ),
+      'parent_item_colon' => __( 'Parent régime alimentaire:' ),
+      'edit_item'         => __( 'Modifier un régime alimentaire' ), 
+      'update_item'       => __( 'Mettre à jour un régime alimentaire' ),
+      'add_new_item'      => __( 'Ajouter un nouveau régime alimentaire' ),
+      'new_item_name'     => __( 'Nouveau régime alimentaire' ),
+      'menu_name'         => __( 'Régime alimentaire' )
+    );
+
+    $args = array(
+      'hierarchical'      => true, 
+      'labels'            => $labels,
+      'show_ui'           => true,
+      'show_admin_column' => true,
+      'query_var'         => true,
+      'show_in_rest'      => true,
+      'rewrite'           => array( 'slug' => 'regime-alimentaire' )
+    );
+
+	  register_taxonomy('regime_alimentaire', array('recettes'), $args);
+  }
+
   /***** Actions *****/
   add_action('admin_menu', 'cookinfamily_add_admin_pages', 10);
   add_action('admin_init', 'cookinfamily_settings_register');
   add_action('init', 'cookinfamily_register_custom_post_types', 11);
+  add_action('init', 'cookinfamily_register_taxonomies');
 ?>

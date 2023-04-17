@@ -148,9 +148,35 @@
 	  register_taxonomy('regime_alimentaire', array('recettes'), $args);
   }
 
+  function cookinfamily_request_recettes() {
+    $args = array(
+      'post_type' => 'recettes',
+      'posts_per_page' => 2
+    );
+
+    $query = new WP_Query($args);
+
+    if($query->have_posts()):
+      $response = $query;
+    else:
+      $response = false;
+    endif;
+
+    wp_send_json($response);
+    wp_die();
+  }
+
+  function cookinfamily_scripts() {
+    wp_enqueue_script('cookinfamily', get_template_directory_uri() . '/assets/js/cookinfamily.js', array('jquery'), '1.0.0', true);
+    wp_localize_script('cookinfamily', 'cookinfamily_js', array('ajax_url' => admin_url('admin-ajax.php')));
+  }
+
   /***** Actions *****/
   add_action('admin_menu', 'cookinfamily_add_admin_pages', 10);
   add_action('admin_init', 'cookinfamily_settings_register');
   add_action('init', 'cookinfamily_register_custom_post_types', 11);
   add_action('init', 'cookinfamily_register_taxonomies');
+  add_action('wp_ajax_request_recettes', 'cookinfamily_request_recettes');
+  add_action('wp_ajax_nopriv_request_recettes', 'cookinfamily_request_recettes');
+  add_action('wp_enqueue_scripts', 'cookinfamily_scripts');
 ?>

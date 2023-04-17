@@ -9,13 +9,14 @@
             <?php _e('Découvrez la création d\'un thème sous Wordpress ! Ouvrez les portes du développement sous le CMS le plus utilisé au monde !', 'cookinfamily'); ?>
         </p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <button type="button" class="btn btn-secondary btn-lg px-4 me-sm-3">
+            <button id="ajax_call" type="button" class="btn btn-secondary btn-lg px-4 me-sm-3">
                 <?php _e('Comme un chef !', 'cookinfamily'); ?>
             </button>
             <button type="button" class="btn btn-outline-secondary btn-lg px-4">
                 <?php _e('Ou pas ...', 'cookinfamily'); ?>
             </button>
         </div>
+        <div id="ajax_return"></div>
     </div>
     <div class="overflow-hidden">
         <div class="container px-5">

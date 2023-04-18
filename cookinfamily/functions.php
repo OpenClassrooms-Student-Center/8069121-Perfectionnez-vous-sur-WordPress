@@ -4,7 +4,7 @@
   }
 
   function cookinfamily_theme_settings() {
-    echo '<h1>'.esc_html( get_admin_page_title() ).'</h1>';
+    echo '<h1>'.get_admin_page_title().'</h1>';
     echo '<form action="options.php" method="post" name="cookinfamily_settings">';
     echo '<div>';
 

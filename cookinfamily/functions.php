@@ -29,17 +29,17 @@
     }
 
     function cookinfamily_settings_fields_validate($inputs) {  
-      if(isset($_POST) && !empty($_POST)):
-        if(isset($_POST['cookinfamily_settings_field_introduction']) && !empty($_POST['cookinfamily_settings_field_introduction'])):
+      if(isset($_POST) && !empty($_POST)) {
+        if(isset($_POST['cookinfamily_settings_field_introduction']) && !empty($_POST['cookinfamily_settings_field_introduction'])) {
           update_option('cookinfamily_settings_field_introduction', $_POST['cookinfamily_settings_field_introduction']);
-        endif;
-        if(isset($_POST['cookinfamily_settings_field_phone_number']) && !empty($_POST['cookinfamily_settings_field_phone_number'])):
+        }
+        if(isset($_POST['cookinfamily_settings_field_phone_number']) && !empty($_POST['cookinfamily_settings_field_phone_number'])) {
           update_option('cookinfamily_settings_field_phone_number', $_POST['cookinfamily_settings_field_phone_number']);
-        endif;
-        if(isset($_POST['cookinfamily_settings_field_email']) && !empty($_POST['cookinfamily_settings_field_email'])):
+        }
+        if(isset($_POST['cookinfamily_settings_field_email']) && !empty($_POST['cookinfamily_settings_field_email'])) {
           update_option('cookinfamily_settings_field_email', $_POST['cookinfamily_settings_field_email']);
-        endif;
-      endif;
+        }
+      }
 
       return $inputs;
     }

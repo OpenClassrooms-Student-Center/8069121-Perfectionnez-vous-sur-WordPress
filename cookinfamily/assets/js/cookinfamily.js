@@ -1,21 +1,23 @@
-jQuery(document).ready(function() {
-  jQuery('#ajax_call').click(function() {
-    jQuery.ajax({
-      url: cookinfamily_js.ajax_url,
-      type: 'POST',
-      data: {
-        action: 'request_recettes'
-      },
-      success: function(response) {
-        console.log(response);
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('#ajax_call').addEventListener('click', function() {
+    let formData = new FormData();
+    formData.append('action', 'request_recettes');
 
-        jQuery.each(response.posts, function( key, value ) {
-          jQuery('#ajax_return').append('<div class="col-12 mb-5">' + value.post_title + '</div>');
-        });
-      },
-      error: function(xhr, status, error) {
-        console.log(xhr.responseText);
+    fetch(cookinfamily_js.ajax_url, {
+      method: 'POST',
+      body: formData,
+    }).then(function(response) {
+      if (!response.ok) {
+        throw new Error('Network response error.');
       }
+
+      return response.json();
+    }).then(function(data) {
+      data.posts.forEach(function(post) {
+        document.querySelector('#ajax_return').insertAdjacentHTML('beforeend', '<div class="col-12 mb-5">' + post.post_title + '</div>');
+      });
+    }).catch(function(error) {
+      console.error('There was a problem with the fetch operation: ', error);
     });
   });
 });
